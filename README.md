@@ -22,27 +22,27 @@ This tracks incomes and expenses and displays a summary
 ## 3. Pseudocode  
 ```
 Module Main ()
-    DECLARE Integer total_cardio = 0
-    DECLARE Integer total_strength = 0
-    DECLARE Integer total_activity = 0
-    DECLARE String main_choice = ""
-    DECLARE String sub_choice = ""
-    DECLARE Real duration = 0.0
-    DECLARE String activity_name = ""
+    DECLARE Real total_income = 0.0
+    DECLARE Real total_expense = 0.0
+    DECLARE Real balance = 0.0
+    DECLARE Integer main_choice = 0
+    DECLARE Integer sub_choice = 0
+    DECLARE Real amount = 0.0
+    DECLARE String category_name = ""
 
     DISPLAY "============================"
-    DISPLAY "  CAMPUS FITNESS TRACKER    "
+    DISPLAY "  PERSONAL BUDGET TRACKER   "
     DISPLAY "============================"
 
-    WHILE True
-        // STEP 1: Main Menu & Input Validation
-        DISPLAY "--- MAIN MENU ---"
-        DISPLAY "1. Log Cardio Workout"
-        DISPLAY "2. Log Strength Workout"
-        DISPLAY "3. View Activity Summary"
-        DISPLAY "4. Exit"
-        DISPLAY "Enter your choice (1-4):"
-        INPUT main_choice
+WHILE True
+    // STEP 1: Main Menu & Input Validation
+    DISPLAY "--- MAIN MENU ---"
+    DISPLAY "1. Log Income"
+    DISPLAY "2. Log Expense"
+    DISPLAY "3. View Financial Summary"
+    DISPLAY "4. Exit"
+    DISPLAY "Enter your choice (1-4):"
+    INPUT main_choice
 
 
         WHILE main_choice != 1 AND main_choice != 2 AND main_choice != 3 AND main_choice != 4
@@ -50,14 +50,14 @@ Module Main ()
             INPUT main_choice
         END WHILE
 
-        // STEP 2: Route Submenus and Actions
-        IF main_choice == 1 THEN
-            DISPLAY "--- CARDIO MENU ---"
-            DSIPLAY "1. Running / Jogging"
-            DISLPAY"2. Cycling"
-            DISPLAY "3. Swimming"
-            DISPLAY "Enter cardio activity (1-3):"
-            INPUT sub_choice
+    // STEP 2: Route Submenus and Actions
+    IF main_choice == 1 THEN
+    DISPLAY "--- INCOME MENU ---"
+    DSIPLAY "1. Design"
+    DISLPAY"2. Coding"
+    DISPLAY "3. User Documentation"
+    DISPLAY "Enter income category (1-3):"
+    INPUT sub_choice
 
         WHILE sub_choice != 1 AND sub_choice != 2 AND sub_choice !=3
             DISPLAY "Invalid. Please enter 1, 2, or 3. Try Again!"
@@ -66,79 +66,77 @@ Module Main ()
 
 
         IF sub_choice == 1 THEN
-            activity_name = "Running / Jogging"
+            category_name = "Design"
         ELSE IF sub_choice == 2 THEN
-            activity_name = "Cycling"
+            category_name = "Coding"
         ELSE
-            activity_name = "Swimming"
+            category_name = "User Documentation"
         END IF
 
-        DISPLAY "Enter duration in minutes:"
-        INPUT duration
-        WHILE duration < 0
-            DISPLAY "Invalid. Please enter minutes >= 0:"
-            INPUT duration
+        DISPLAY "Enter income amount:"
+        INPUT amount
+        WHILE amount < 0
+            DISPLAY "Invalid. Please enter amount >= 0:"
+            INPUT amount
         END WHILE
 
 
-        total_cardio = total_cardio + duration
-        DISPLAY "Successfully added " , duration, "minutes for ", activity_name, "."
+        total_income = total_income + amount
+        DISPLAY "Successfully added $" , amount, "of income for", category_name, "."
 
 
         ELSE IF main_choice == 2 THEN
-            DISPLAY "--- STRENGTH MENU ---"
-            DISPLAY "1. Upper Body"
-            DISPLAY "2. Lower Body"
-            DISPLAY "3. Core & Flexibility"
-            DISLPAY "Enter strength category (1-3):"
+            DISPLAY "--- EXPENSE MENU ---"
+            DISPLAY "1. Software"
+            DISPLAY "2. Equipment"
+            DISPLAY "3. Workspace"
+            DISLPAY "Enter expense category (1-3):"
 
          WHILE sub_choice != 1 AND sub_choice != 2 AND sub_choice !=3
             DISPLAY "Invalid. Please enter 1, 2, or 3. Try Again!"
             INPUT sub_choice
-        END WHILE
+         END WHILE
 
 
         IF sub_choice == 1 THEN
-            activity_name = "Upper Body"
+            catergory_name = "Software"
         ELSE IF sub_choice == 2 THEN
-            activity_name = "Lower Body"
+            catergory_name = "Equipment"
         ELSE
-            activity_name = "Core and Flexibility"
+            category_name = "Workspace"
         END IF
 
 
-         DISPLAY "Enter duration in minutes:"
-        INPUT duration
-        WHILE duration < 0
-            DISPLAY "Invalid. Please enter minutes >= 0:"
-            INPUT duration
-        END WHILE
+        DISPLAY "Enter Expense Amount:"
+        INPUT amount
+          WHILE amount < 0
+            DISPLAY "Invalid. Please enter expense >= 0:"
+            INPUT amount
+          END WHILE
 
 
-         total_cardio = total_strength + duration
-        DISPLAY "Successfully added " , duration, "minutes for ", activity_name, "."
-
+         total_expense = total_expense + amount
+        DISPLAY "Successfully added $" , amount, "of expenses for", category_name, "."
 
     ELSE IF main_choice == 3 THEN
-        total_active = total_cardio + total_strength"
+        balance = total_income - total_expense"
         DISPLAY "=========================================="
-        DISPLAY "           ACTIVITY SUMMARY               "         
+        DISPLAY "           FINANCIAL SUMMARY               "         
         DISPLAY "=========================================="
-        DISPLAY "Total Cardio:", total_cardio
-        DISPLAY "Total Strength:", total_strength
-        DSIPLAY "Total Active:", total_active
+        DISPLAY "Total Income:", total_income
+        DISPLAY "Total Expenses:", total_expense
+        DSIPLAY "Net Balance:", balance
 
-        IF total_active >= 120 THEN
-            DISPLAY "Status: Goal Achieved! You exceeded 120 weekly active minutes"
-        ELSE IF total_active > 0 THEN
-            DISPLAY "Status: Keep Going!", (120 - total_active), "more minutes needed to hit"
-            DISPLAY "your weekly target."
+      IF balance > 0 THEN
+            DISPLAY "Status: Good job! You were profitable this month! :)"
+        ELSE IF balance < 0 THEN
+            DISPLAY "Status: You spent more than you earned this month. :("
         ELSE
-            DISPLAY "Status: No workout logged yet."
-        END IF
+            DISPLAY "Status: You broke even this month."
+      END IF
         DISPLAY "=========================================="
     ELSE IF main_choice == 4 THEN
-        DISLPAY "Thank you for using Campus Fitness Tracker! Stay Active!"
+        DISLPAY "Thank you for using Personal Budget Tracker. Goodbye!"
         BREAK
     END IF
   END WHILE
