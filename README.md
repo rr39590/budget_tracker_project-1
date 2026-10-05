@@ -35,7 +35,7 @@ Module Main ()
     DISPLAY "  PERSONAL BUDGET TRACKER   "
     DISPLAY "============================"
 
-WHILE True
+  WHILE True
     // STEP 1: Main Menu & Input Validation
     DISPLAY "--- MAIN MENU ---"
     DISPLAY "1. Log Income"
@@ -134,7 +134,7 @@ WHILE True
             DISPLAY "Status: You spent more than you earned this month. :("
         ELSE
             DISPLAY "Status: You broke even this month."
-      END IF
+        END IF
         DISPLAY "=========================================="
     ELSE IF main_choice == 4 THEN
         DISLPAY "Thank you for using Personal Budget Tracker. Goodbye!"
