@@ -27,7 +27,8 @@ Module Main ()
     DECLARE Real balance = 0.0
     DECLARE Integer main_choice = 0
     DECLARE Integer sub_choice = 0
-    DECLARE Real amount = 0.0
+    DECLARE Real income_amount = 0.0
+    DECLARE Real expense_amount = 0.0
     DECLARE String category_name = ""
 
     DISPLAY "============================"
@@ -74,14 +75,14 @@ WHILE True
         END IF
 
         DISPLAY "Enter income amount:"
-        INPUT amount
-        WHILE amount < 0
+        INPUT income_amount
+        WHILE income_amount < 0
             DISPLAY "Invalid. Please enter amount >= 0:"
-            INPUT amount
+            INPUT income_amount
         END WHILE
 
 
-        total_income = total_income + amount
+        total_income = total_income + income_amount
         DISPLAY "Successfully added $" , amount, "of income for", category_name, "."
 
 
@@ -108,14 +109,14 @@ WHILE True
 
 
         DISPLAY "Enter Expense Amount:"
-        INPUT amount
-          WHILE amount < 0
+        INPUT expense_amount
+          WHILE expense_amount < 0
             DISPLAY "Invalid. Please enter expense >= 0:"
-            INPUT amount
+            INPUT expense_amount
           END WHILE
 
 
-         total_expense = total_expense + amount
+         total_expense = total_expense + expense_amount
         DISPLAY "Successfully added $" , amount, "of expenses for", category_name, "."
 
     ELSE IF main_choice == 3 THEN
