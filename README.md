@@ -46,10 +46,10 @@ WHILE True
     INPUT main_choice
 
 
-        WHILE main_choice != 1 AND main_choice != 2 AND main_choice != 3 AND main_choice != 4
+    WHILE main_choice != 1 AND main_choice != 2 AND main_choice != 3 AND main_choice != 4
             DISPLAY "Invalid. Choice must be 1, 2, 3, or 4. Try Again:"
             INPUT main_choice
-        END WHILE
+    END WHILE
 
     // STEP 2: Route Submenus and Actions
     IF main_choice == 1 THEN
@@ -93,19 +93,19 @@ WHILE True
             DISPLAY "3. Workspace"
             DISLPAY "Enter expense category (1-3):"
 
-         WHILE sub_choice != 1 AND sub_choice != 2 AND sub_choice !=3
-            DISPLAY "Invalid. Please enter 1, 2, or 3. Try Again!"
-            INPUT sub_choice
-         END WHILE
+            WHILE sub_choice != 1 AND sub_choice != 2 AND sub_choice !=3
+               DISPLAY "Invalid. Please enter 1, 2, or 3. Try Again!"
+               INPUT sub_choice
+            END WHILE
 
 
-        IF sub_choice == 1 THEN
-            catergory_name = "Software"
-        ELSE IF sub_choice == 2 THEN
-            catergory_name = "Equipment"
-        ELSE
-            category_name = "Workspace"
-        END IF
+            IF sub_choice == 1 THEN
+               catergory_name = "Software"
+            ELSE IF sub_choice == 2 THEN
+               catergory_name = "Equipment"
+            ELSE
+               category_name = "Workspace"
+            END IF
 
 
         DISPLAY "Enter Expense Amount:"
@@ -128,7 +128,7 @@ WHILE True
         DISPLAY "Total Expenses:", total_expense
         DSIPLAY "Net Balance:", balance
 
-      IF balance > 0 THEN
+        IF balance > 0 THEN
             DISPLAY "Status: Good job! You were profitable this month! :)"
         ELSE IF balance < 0 THEN
             DISPLAY "Status: You spent more than you earned this month. :("
